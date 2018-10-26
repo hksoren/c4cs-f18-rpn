@@ -11,13 +11,23 @@ def calculate(arg):
     	except ValueError:
     		val1 = stack.pop()
     		val2 = stack.pop()
-    		result = val1 + val2
+    		if token == '+':
+    			result = val1 + val2
+    		elif token == '-':
+    			result = val2 - val1
     		stack.append(result)
+
+
+    if len(stack) > 1:
+    	raise ValueError("Too many arguments on the stack")		
     return stack[0]
 
 def main():
     while True:
-        result = calculate(input("rpn calc> "))
-        print(result)
+    	try:
+        	result = calculate(input("rpn calc> "))
+        	print(result)
+        except ValueError:
+        	pass
 if __name__ == '__main__': # Note: that's "underscore underscore n a m e ..."
     main()
