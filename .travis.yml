@@ -2,6 +2,6 @@ language: python
 python:
   - "3.6"
 script:
-  - test_rpn.py
-  
+  - python3 -m unittest
+
 
